@@ -1,0 +1,42 @@
+<ng-container *ngIf="this.pokemons.length > 0">
+  <!--<div  *ngFor="let pokemon of pokemons" class="col-1-4">
+    <div class="module pokemon">
+      <h4>{{pokemon.name}}</h4>
+    </div>
+  </div>-->
+
+  <app-search-bar *ngIf="this.pokemons.length > 0" (SearchCompleted)="ShowSearchResults($event)"></app-search-bar>
+<br>
+<table border="1px" class="table">
+  <thead>
+  <tr>
+    <th scope="col">Naam</th>
+    <th scope="col">Type</th>
+    <th scope="col">Acties</th>
+  </tr>
+
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let pokemon of pokemons">
+    <tr>
+      <td>
+        {{pokemon.name}}
+      </td>
+      <td [ngStyle]="{'background-color':pokemon.color}">
+        {{pokemon.type}}
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-pencil" (click)="edit(pokemon.id)"></span>
+        <span class="glyphicon glyphicon-remove" (click)="delete(pokemon.id)"></span>
+      </td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>
+<br>
+<button (click)="add()"  class="btn btn-primary">Toevoegen aan Pokedex</button> &nbsp;
+</ng-container>
+
+ <h4 *ngIf="this.pokemons.length === 0">Geen Pokémon ontdekt</h4>
+<button *ngIf="this.pokemons.length > 0" (click)="clearPokedex()" class="btn btn-primary">Pokedex leegmaken</button>  &nbsp;
+<button *ngIf="this.pokemons.length === 0" (click)="fetchPokemons()" class="btn btn-primary">Pokedex terug opvullen</button>

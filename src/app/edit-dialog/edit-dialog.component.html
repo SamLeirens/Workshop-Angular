@@ -1,0 +1,18 @@
+<form *ngIf="this.pokemon" [formGroup]="form" (ngSubmit)="submit(form)">
+    <h1 mat-dialog-title>
+        Pokémon wijzigen</h1>
+    <div mat-dialog-content>
+            Naam:
+            <div *ngIf="showErrors && !this.form.get('name').valid" style="color: red">Vul het veld correct in</div>
+            <input class="form-control" formControlName="name" [value]="form.get('name').value" [(ngModel)]="pokemon.name"> Type:
+            <div *ngIf="showErrors && !this.form.get('type').valid" style="color: red">Vul het veld correct in</div>
+            <input class="form-control" formControlName="type"  [value]="form.get('type').value" [(ngModel)]="pokemon.type"> Kleur:
+            <div *ngIf="showErrors && !this.form.get('color').valid" style="color: red">Vul het veld correct in</div>
+            <input readonly class="form-control" [colorPicker]="form.get('color').value" [value]="form.get('color').value" [style.background]="form.get('color').value"
+                   (colorPickerChange)="form.get('color').setValue($event)" formControlName="color" [(ngModel)]="pokemon.color">
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button type="submit">Aanpassen</button>
+        <button mat-button type="button" mat-dialog-close>Sluiten</button>
+    </div>
+</form>
