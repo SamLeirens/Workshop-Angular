@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 
 
-Workshop Angular
+# Workshop Angular
 Tijdens deze workshop zullen wij kennismaken met het populaire front-end framework “Angular”. We zullen hiervoor de laatste versie van Angular gebruiken, namelijk versie 6. Voor deze workshop dient men Node Pack Manager (NPM) en een IDE (IntelliJ IDEA Ultimate, PhpStorm, …) te installeren.
 
 Aanmaken van project
